@@ -1,0 +1,12 @@
+<div class="slider">
+    <i class="pi pi-arrow-left" style="font-size: 2rem"></i>
+    <div class="img-container">
+        <img [src]="images[4 % images.length]" />
+    </div>
+    <!--
+    <div class="img-container" *ngFor="let image of images">
+        <img [src]="image"/>
+    </div>
+    -->
+    <i class="pi pi-arrow-right" style="font-size: 2rem"></i>
+</div>

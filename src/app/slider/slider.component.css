@@ -1,0 +1,14 @@
+.slider {
+    display: flex;
+}
+
+.img-container{
+    padding: 10px;
+    background: white;
+    padding-bottom: 60px;
+    box-shadow: rgb(0, 217, 255) 0px 0px 15px;
+}
+
+.img-container img {
+    width: 300px;
+}
