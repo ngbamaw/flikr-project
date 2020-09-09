@@ -6,9 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent],
+  declarations: [AppComponent, SearchComponent, SliderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

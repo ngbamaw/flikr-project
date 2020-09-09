@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "flickrSearchEngine"
+    }
+  },
+  "defaultProject": "flickrSearchEngine",
+  "cli": {
+    "analytics": "e09668b3-b185-40ca-a344-2b562e2dfb61"
+  }
 }
