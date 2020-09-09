@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 import { HttpService } from '../http.service';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 export namespace SearchComponent {
   export interface Filters {
@@ -32,7 +33,17 @@ export class SearchComponent implements OnInit {
 
   onSubmit(filters: SearchComponent.Filters) {
     console.log(filters);
-    const images = this.HttpService.getImage(filters);
+    // TODO: change any type to getImageResponse interface
+    const images = this.HttpService.getImage(filters).subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      (err: HttpErrorResponse) => {
+        if (!err.ok) {
+          console.error(err);
+        }
+      }
+    );
     console.log(images);
   }
 }

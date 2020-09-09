@@ -17,19 +17,20 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
     this.headers = headers;
 
-    let params = new HttpParams();
-    params.set('api_key', config.API_KEY);
-    params.set('format', this.reponseFormat);
-    params.set('nojsoncallback', '1');
-    params.set('extras', 'url_o');
+    let params = new HttpParams()
+      .append('api_key', config.API_KEY)
+      .append('format', this.reponseFormat)
+      .append('nojsoncallback', '1')
+      .append('extras', 'url_o');
+
     this.params = params;
   }
 
   getImage(filters: SearchComponent.Filters) {
     const { tags } = filters;
-    let params = this.params;
-    params.set('method', 'flickr.method.search');
-    params.set('tags', tags);
+    let params = this.params
+      .append('method', 'flickr.photos.search')
+      .append('tags', tags);
     return this.http.get(`${config.BASE_API_URL}/`, {
       headers: this.headers,
       params,
