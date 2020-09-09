@@ -27,10 +27,13 @@ export class HttpService {
   }
 
   getImage(filters: SearchComponent.Filters) {
-    const { tags } = filters;
-    const params = this.params
+    const { tags, added_tags, is_in_gallery, min_date, max_date } = filters;
+    let params = this.params
       .append('method', 'flickr.photos.search')
-      .append('tags', tags);
+      .append('tags', `${tags},${added_tags}`)
+      .append('in_gallery', `${is_in_gallery ? is_in_gallery : false}`)
+      .append('min_upload_date', `${min_date ? min_date : ''}`)
+      .append('max_upload_date', `${max_date ? max_date : ''}`);
 
     return this.http.get(`${config.BASE_API_URL}/`, {
       headers: this.headers,
