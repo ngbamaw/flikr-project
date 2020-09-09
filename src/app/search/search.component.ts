@@ -8,12 +8,12 @@ import { Photo } from '../models';
 
 export namespace SearchComponent {
   export interface Filters {
-    tags: string;
-    size?: string;
-    min_date?: string;
-    max_date?: string;
-    added_tags: string;
+    added_tags?: string;
     is_in_gallery: boolean;
+    min_date?: number;
+    max_date?: number;
+    size?: string;
+    tags: string;
   }
 
   export interface GetImagesResponse {
@@ -76,8 +76,8 @@ export class SearchComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       tags: '',
       size: '',
-      min_date: '',
-      max_date: '',
+      min_date: new Date(),
+      max_date: new Date(),
       added_tags: '',
       is_in_gallery: false,
     });
@@ -87,6 +87,14 @@ export class SearchComponent implements OnInit {
 
   onSubmit(filters: SearchComponent.Filters) {
     // TODO: propagate event to get the correct size
+    if (filters.min_date) {
+      filters.min_date = new Date(filters.min_date).getTime();
+    }
+
+    if (filters.max_date) {
+      filters.max_date = new Date(filters.max_date).getTime();
+    }
+
     this.HttpService.getImage(filters).subscribe(
       ({ photos }: SearchComponent.GetImagesResponse) => {
         this.photos = photos.photo;

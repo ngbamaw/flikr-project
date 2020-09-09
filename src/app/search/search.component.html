@@ -20,6 +20,12 @@
   <input type="date" formControlName="min_date" />
   <input type="date" formControlName="max_date" />
   <input type="text" formControlName="added_tags" />
-  <input type="checkbox" formControlName="is_in_gallery" />
+  <label for="in_gal">Must be in gallery</label>
+  <input
+    type="checkbox"
+    name="in_gal"
+    id="in_gal"
+    formControlName="is_in_gallery"
+  />
   <button type="submit">Search photos</button>
 </form>
