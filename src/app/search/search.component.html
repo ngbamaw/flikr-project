@@ -1,0 +1,14 @@
+<form
+  [formGroup]="searchForm"
+  (ngSubmit)="onSubmit(searchForm.value)"
+  method="post"
+>
+  <input
+    type="text"
+    minlength="2"
+    required
+    placeholder="Search.."
+    formControlName="tags"
+  />
+  <button type="submit">Search photos</button>
+</form>
