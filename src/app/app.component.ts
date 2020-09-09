@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Photo } from './models';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'flickrSearchEngine';
 
+  images: Photo[];
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     const love = String.fromCodePoint(0x1f60d);
     console.log(`Made with ${love} by Landry Monga and William Ngbama`);
+  }
+
+  updateImages(images) {
+    this.images = images;
+    console.log(this.images);
   }
 }

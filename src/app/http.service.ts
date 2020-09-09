@@ -28,7 +28,6 @@ export class HttpService {
 
   getImage(filters: SearchComponent.Filters) {
     const { tags, added_tags, is_in_gallery, min_date, max_date } = filters;
-    console.log(min_date, max_date);
     let params = this.params
       .append('method', 'flickr.photos.search')
       .append('tags', `${tags},${added_tags}`)

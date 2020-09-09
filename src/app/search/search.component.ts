@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 import { HttpService } from '../http.service';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { Photo } from '../models';
 
@@ -69,6 +69,9 @@ export class SearchComponent implements OnInit {
     },
   ];
 
+  @Output()
+  public onSearchImages: EventEmitter<Photo[]> = new EventEmitter<Photo[]>();
+
   constructor(
     private HttpService: HttpService,
     private formBuilder: FormBuilder
@@ -76,8 +79,8 @@ export class SearchComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       tags: '',
       size: '',
-      min_date: new Date(),
-      max_date: new Date(),
+      min_date: null,
+      max_date: null,
       added_tags: '',
       is_in_gallery: false,
     });
@@ -98,7 +101,7 @@ export class SearchComponent implements OnInit {
     this.HttpService.getImage(filters).subscribe(
       ({ photos }: SearchComponent.GetImagesResponse) => {
         this.photos = photos.photo;
-        console.log(this.photos);
+        this.onSearchImages.emit(this.photos);
       },
       (err: HttpErrorResponse) => {
         if (!err.ok) {
