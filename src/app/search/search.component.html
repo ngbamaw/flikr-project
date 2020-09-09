@@ -10,5 +10,16 @@
     placeholder="Search.."
     formControlName="tags"
   />
+  <select formControlName="size">
+    <option value="" disabled>Choose your prefered size</option>
+    <option *ngFor="let size of sizes" [value]="size.value">
+      {{ size.text }}
+    </option>
+  </select>
+
+  <input type="date" formControlName="min_date" />
+  <input type="date" formControlName="max_date" />
+  <input type="text" formControlName="added_tags" />
+  <input type="checkbox" formControlName="is_in_gallery" />
   <button type="submit">Search photos</button>
 </form>

@@ -9,6 +9,11 @@ import { Photo } from '../models';
 export namespace SearchComponent {
   export interface Filters {
     tags: string;
+    size?: string;
+    min_date?: string;
+    max_date?: string;
+    added_tags: string;
+    is_in_gallery: boolean;
   }
 
   export interface GetImagesResponse {
@@ -29,6 +34,40 @@ export class SearchComponent implements OnInit {
   photos: Photo[];
   searchForm;
   control;
+  sizes = [
+    {
+      text: 'small square',
+      value: 's',
+    },
+    {
+      text: 'large sqaure',
+      value: 'q',
+    },
+    {
+      text: 'thumbnail',
+      value: 't',
+    },
+    {
+      text: '240px',
+      value: 'm',
+    },
+    {
+      text: '240px',
+      value: 'n',
+    },
+    {
+      text: '640px',
+      value: 'z',
+    },
+    {
+      text: '800px',
+      value: 'c',
+    },
+    {
+      text: '1024px',
+      value: 'b',
+    },
+  ];
 
   constructor(
     private HttpService: HttpService,
@@ -36,13 +75,19 @@ export class SearchComponent implements OnInit {
   ) {
     this.searchForm = this.formBuilder.group({
       tags: '',
+      size: '',
+      min_date: '',
+      max_date: '',
+      added_tags: '',
+      is_in_gallery: false,
     });
   }
 
   ngOnInit(): void {}
 
   onSubmit(filters: SearchComponent.Filters) {
-    const images = this.HttpService.getImage(filters).subscribe(
+    // TODO: propagate event to get the correct size
+    this.HttpService.getImage(filters).subscribe(
       ({ photos }: SearchComponent.GetImagesResponse) => {
         this.photos = photos.photo;
         console.log(this.photos);
@@ -53,6 +98,5 @@ export class SearchComponent implements OnInit {
         }
       }
     );
-    return images;
   }
 }

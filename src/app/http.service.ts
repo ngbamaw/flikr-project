@@ -28,7 +28,7 @@ export class HttpService {
 
   getImage(filters: SearchComponent.Filters) {
     const { tags } = filters;
-    const params = this.params
+    let params = this.params
       .append('method', 'flickr.photos.search')
       .append('tags', tags);
 
