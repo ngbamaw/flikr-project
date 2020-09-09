@@ -4,9 +4,18 @@ import { FormBuilder } from '@angular/forms';
 import { HttpService } from '../http.service';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
+import { Photo } from '../models';
+
 export namespace SearchComponent {
   export interface Filters {
     tags: string;
+  }
+
+  export interface GetImagesResponse {
+    photos: {
+      page: string;
+      photo: Photo[];
+    };
   }
 }
 
@@ -17,6 +26,7 @@ export namespace SearchComponent {
 })
 export class SearchComponent implements OnInit {
   tags: string = '';
+  photos: Photo[];
   searchForm;
   control;
 
@@ -32,11 +42,10 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(filters: SearchComponent.Filters) {
-    console.log(filters);
-    // TODO: change any type to getImageResponse interface
     const images = this.HttpService.getImage(filters).subscribe(
-      (data: any) => {
-        console.log(data);
+      ({ photos }: SearchComponent.GetImagesResponse) => {
+        this.photos = photos.photo;
+        console.log(this.photos);
       },
       (err: HttpErrorResponse) => {
         if (!err.ok) {
@@ -44,6 +53,6 @@ export class SearchComponent implements OnInit {
         }
       }
     );
-    console.log(images);
+    return images;
   }
 }

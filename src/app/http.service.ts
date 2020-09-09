@@ -21,16 +21,17 @@ export class HttpService {
       .append('api_key', config.API_KEY)
       .append('format', this.reponseFormat)
       .append('nojsoncallback', '1')
-      .append('extras', 'url_o');
+      .append('per_page', '20');
 
     this.params = params;
   }
 
   getImage(filters: SearchComponent.Filters) {
     const { tags } = filters;
-    let params = this.params
+    const params = this.params
       .append('method', 'flickr.photos.search')
       .append('tags', tags);
+
     return this.http.get(`${config.BASE_API_URL}/`, {
       headers: this.headers,
       params,
