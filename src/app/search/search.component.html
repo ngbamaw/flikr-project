@@ -28,6 +28,9 @@
     name="added_tags"
     formControlName="added_tags"
   />
+  <div *ngIf="tags.hasError('whitespace') || added_tags.hasError('whitespace')">
+    Inputs must be comma seperated, no spaces allowed
+  </div>
   <label for="in_gal">Must be in gallery</label>
   <input
     type="checkbox"

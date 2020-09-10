@@ -1,5 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  Validators,
+  FormGroup,
+} from '@angular/forms';
 
 import { HttpService } from '../http.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -30,9 +35,7 @@ export namespace SearchComponent {
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  tags: string = '';
   photos: Photo[];
-  searchForm;
   sizes = [
     {
       text: 'small square (75px)',
@@ -67,21 +70,45 @@ export class SearchComponent implements OnInit {
   @Output()
   public onSearchImages: EventEmitter<Photo[]> = new EventEmitter<Photo[]>();
 
+  public noWhitespaceValidator(control: FormControl) {
+    if (control.value === null) return null;
+    const hasWhitespace = control.value.indexOf(' ') > 0;
+    const isValid = !hasWhitespace;
+    return isValid ? null : { whitespace: true };
+  }
+
+  searchForm: FormGroup;
+
   constructor(
     private HttpService: HttpService,
     private formBuilder: FormBuilder
   ) {
     this.searchForm = this.formBuilder.group({
-      tags: null,
+      tags: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          this.noWhitespaceValidator,
+        ],
+      ],
       size: null,
       min_date: null,
       max_date: null,
-      added_tags: null,
+      added_tags: [null, this.noWhitespaceValidator],
       is_in_gallery: false,
-    } as SearchComponent.Filters);
+    });
   }
 
   ngOnInit(): void {}
+
+  get tags() {
+    return this.searchForm.get('tags');
+  }
+
+  get added_tags() {
+    return this.searchForm.get('added_tags');
+  }
 
   onSubmit(filters: SearchComponent.Filters) {
     if (filters.min_date) {
