@@ -1,5 +1,5 @@
 <div id="root">
   <h1>Welcome in Flickr Search Engine</h1>
-  <app-search></app-search>
+  <app-search (onSearchImages)="updateImages($event)"></app-search>
   <app-slider [images]="images"></app-slider>
 </div>

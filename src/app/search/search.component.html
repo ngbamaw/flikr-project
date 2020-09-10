@@ -7,8 +7,33 @@
     type="text"
     minlength="2"
     required
+    name="tags"
+    id="tags"
     placeholder="Search.."
     formControlName="tags"
+  />
+  <select formControlName="size">
+    <option value="" disabled>Choose your prefered size</option>
+    <option *ngFor="let size of sizes" [value]="size.value">
+      {{ size.text }}
+    </option>
+  </select>
+
+  <input type="date" formControlName="min_date" />
+  <input type="date" formControlName="max_date" />
+  <label form="added_tags">Added tags</label>
+  <input
+    type="text"
+    id="added_tags"
+    name="added_tags"
+    formControlName="added_tags"
+  />
+  <label for="in_gal">Must be in gallery</label>
+  <input
+    type="checkbox"
+    name="in_gal"
+    id="in_gal"
+    formControlName="is_in_gallery"
   />
   <button type="submit">Search photos</button>
 </form>

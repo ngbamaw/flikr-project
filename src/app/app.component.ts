@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Photo } from './models';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'flickrSearchEngine';
-  images: string[] = [
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
-  ];
+
+  images: Photo[];
+
+  ngOnInit(): void {
+    const love = String.fromCodePoint(0x1f60d);
+    console.log(`Made with ${love} by Landry Monga and William Ngbama`);
+  }
+
+  updateImages(images) {
+    this.images = images;
+    console.log(this.images);
+  }
 }
