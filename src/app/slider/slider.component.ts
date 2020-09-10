@@ -13,31 +13,19 @@ export class SliderComponent implements OnInit {
   @Input()
   images: Photo[];
 
-  // private _images: string[] = [
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg',
-  // ];
-
   scales = [0.7, 0.8, 0.9, 1, 0.9, 0.8, 0.7];
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  buildImgSrc(image: Photo) {
-    console.log(image);
-    return `${this.protocol}farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`;
+  buildImgSrc(image: Photo, size?: string) {
+    const extension = '.jpg';
+    let base = `${this.protocol}farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}`;
+    if (size) {
+      base = `${base}_${size}`;
+    }
+
+    return `${base}${extension}`;
   }
 }

@@ -21,17 +21,23 @@ export class HttpService {
       .append('api_key', config.API_KEY)
       .append('format', this.reponseFormat)
       .append('nojsoncallback', '1')
-      .append('per_page', '20');
+      .append('tag_mode', 'all')
+      .append('per_page', '20')
+      .append('media', 'photos')
+      .append(
+        'extras',
+        'description,date_upload,owner_name,views,tags,last_update'
+      );
 
     this.params = params;
   }
 
-  getImage(filters: SearchComponent.Filters) {
+  getImages(filters: SearchComponent.Filters) {
     const { tags, added_tags, is_in_gallery, min_date, max_date } = filters;
-    let params = this.params
+    const params = this.params
       .append('method', 'flickr.photos.search')
-      .append('tags', `${tags},${added_tags}`)
-      .append('in_gallery', `${is_in_gallery ? is_in_gallery : false}`)
+      .append('tags', `${tags}${added_tags ? `,${added_tags}` : ''}`)
+      .append('in_gallery', `${is_in_gallery}`)
       .append('min_upload_date', `${min_date ? min_date : ''}`)
       .append('max_upload_date', `${max_date ? max_date : ''}`);
 
