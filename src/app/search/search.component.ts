@@ -72,19 +72,18 @@ export class SearchComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.searchForm = this.formBuilder.group({
-      tags: '',
-      size: '',
+      tags: null,
+      size: null,
       min_date: null,
       max_date: null,
-      added_tags: '',
+      added_tags: null,
       is_in_gallery: false,
-    });
+    } as SearchComponent.Filters);
   }
 
   ngOnInit(): void {}
 
   onSubmit(filters: SearchComponent.Filters) {
-    // TODO: propagate event to get the correct size
     if (filters.min_date) {
       filters.min_date = new Date(filters.min_date).getTime();
     }
@@ -93,10 +92,15 @@ export class SearchComponent implements OnInit {
       filters.max_date = new Date(filters.max_date).getTime();
     }
 
-    this.HttpService.getImage(filters).subscribe(
+    if (filters.size) {
+      // TODO: propagate event to get the correct size
+    }
+
+    this.HttpService.getImages(filters).subscribe(
       ({ photos }: SearchComponent.GetImagesResponse) => {
         this.photos = photos.photo;
         this.onSearchImages.emit(this.photos);
+        console.log(this.photos);
       },
       (err: HttpErrorResponse) => {
         if (!err.ok) {

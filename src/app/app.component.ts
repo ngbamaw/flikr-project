@@ -7,8 +7,6 @@ import { Photo } from './models';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'flickrSearchEngine';
-
   images: Photo[];
 
   ngOnInit(): void {
@@ -18,6 +16,5 @@ export class AppComponent implements OnInit {
 
   updateImages(images) {
     this.images = images;
-    console.log(this.images);
   }
 }
