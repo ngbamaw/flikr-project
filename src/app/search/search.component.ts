@@ -33,18 +33,17 @@ export class SearchComponent implements OnInit {
   tags: string = '';
   photos: Photo[];
   searchForm;
-  control;
   sizes = [
     {
-      text: 'small square',
+      text: 'small square (75px)',
       value: 's',
     },
     {
-      text: 'large sqaure',
+      text: 'large sqaure (150px)',
       value: 'q',
     },
     {
-      text: 'thumbnail',
+      text: 'thumbnail (100px long)',
       value: 't',
     },
     {
@@ -52,7 +51,7 @@ export class SearchComponent implements OnInit {
       value: 'm',
     },
     {
-      text: '240px',
+      text: '320px',
       value: 'n',
     },
     {
@@ -62,10 +61,6 @@ export class SearchComponent implements OnInit {
     {
       text: '800px',
       value: 'c',
-    },
-    {
-      text: '1024px',
-      value: 'b',
     },
   ];
 
