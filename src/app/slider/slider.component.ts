@@ -13,18 +13,22 @@ export class SliderComponent implements OnInit {
   @Input()
   images: Photo[];
 
+  @Input()
+  size?: number;
+
   scales = [0.7, 0.8, 0.9, 1, 0.9, 0.8, 0.7];
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  buildImgSrc(image: Photo, size?: string) {
+  buildImgSrc(image: Photo) {
     const extension = '.jpg';
     let base = `${this.protocol}farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}`;
-    if (size) {
-      base = `${base}_${size}`;
+    if (this.size) {
+      base = `${base}_${this.size}`;
     }
+    console.log(`${base}${extension}`);
 
     return `${base}${extension}`;
   }

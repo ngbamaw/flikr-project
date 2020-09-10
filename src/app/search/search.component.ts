@@ -70,6 +70,9 @@ export class SearchComponent implements OnInit {
   @Output()
   public onSearchImages: EventEmitter<Photo[]> = new EventEmitter<Photo[]>();
 
+  @Output()
+  public imageSizeEmitter: EventEmitter<string> = new EventEmitter<string>();
+
   public noWhitespaceValidator(control: FormControl) {
     if (control.value === null) return null;
     const hasWhitespace = control.value.indexOf(' ') > 0;
@@ -120,7 +123,7 @@ export class SearchComponent implements OnInit {
     }
 
     if (filters.size) {
-      // TODO: propagate event to get the correct size
+      this.imageSizeEmitter.emit(filters.size);
     }
 
     this.HttpService.getImages(filters).subscribe(

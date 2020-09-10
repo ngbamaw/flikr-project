@@ -8,6 +8,7 @@ import { Photo } from './models';
 })
 export class AppComponent implements OnInit {
   images: Photo[];
+  picsSize: number = null;
 
   ngOnInit(): void {
     const love = String.fromCodePoint(0x1f60d);
@@ -16,5 +17,9 @@ export class AppComponent implements OnInit {
 
   updateImages(images) {
     this.images = images;
+  }
+
+  updateSize(size) {
+    this.picsSize = size;
   }
 }
