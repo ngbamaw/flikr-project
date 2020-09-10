@@ -1,7 +1,7 @@
 <form
   [formGroup]="searchForm"
   (ngSubmit)="onSubmit(searchForm.value)"
-  method="post"
+  ngNativeValidate
 >
   <input
     type="text"
@@ -13,12 +13,11 @@
     formControlName="tags"
   />
   <select formControlName="size">
-    <option value="" disabled>Choose your prefered size</option>
+    <option value="" disabled hidden selected>Choose your prefered size</option>
     <option *ngFor="let size of sizes" [value]="size.value">
       {{ size.text }}
     </option>
   </select>
-
   <input type="date" formControlName="min_date" />
   <input type="date" formControlName="max_date" />
   <label form="added_tags">Added tags</label>
