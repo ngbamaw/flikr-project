@@ -38,6 +38,6 @@ export class SliderComponent implements OnInit {
 
   buildImgSrc(image: Photo) {
     console.log(image);
-    return `${this.protocol}farm${image.farm}.staticflickr.com/${image.server}/${image.id}/${image.secret}.jpg`;
+    return `${this.protocol}farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`;
   }
 }
