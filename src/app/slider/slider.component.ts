@@ -30,7 +30,6 @@ export class SliderComponent implements OnInit {
     if (this.size) {
       base = `${base}_${this.size}`;
     }
-    console.log(`${base}${extension}`);
 
     return `${base}${extension}`;
   }
