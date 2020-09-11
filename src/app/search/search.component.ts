@@ -17,7 +17,7 @@ export namespace SearchComponent {
     is_in_gallery: boolean;
     min_date?: number;
     max_date?: number;
-    size?: string;
+    size?: Size;
     tags: string;
   }
 
@@ -29,6 +29,12 @@ export namespace SearchComponent {
   }
 }
 
+interface Size {
+  label: string;
+  value: string;
+}
+
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -36,36 +42,38 @@ export namespace SearchComponent {
 })
 export class SearchComponent implements OnInit {
   photos: Photo[];
-  sizes = [
+  sizes: Size[] = [
     {
-      text: 'small square (75px)',
+      label: 'small square (75px)',
       value: 's',
     },
     {
-      text: 'large sqaure (150px)',
+      label: 'large sqaure (150px)',
       value: 'q',
     },
     {
-      text: 'thumbnail (100px long)',
+      label: 'thumbnail (100px long)',
       value: 't',
     },
     {
-      text: '240px',
+      label: '240px',
       value: 'm',
     },
     {
-      text: '320px',
+      label: '320px',
       value: 'n',
     },
     {
-      text: '640px',
+      label: '640px',
       value: 'z',
     },
     {
-      text: '800px',
+      label: '800px',
       value: 'c',
     },
   ];
+
+  selectedSize: Size;
 
   @Output()
   public onSearchImages: EventEmitter<Photo[]> = new EventEmitter<Photo[]>();
@@ -123,7 +131,7 @@ export class SearchComponent implements OnInit {
     }
 
     if (filters.size) {
-      this.imageSizeEmitter.emit(filters.size);
+      this.imageSizeEmitter.emit(filters.size.value);
     }
 
     this.HttpService.getImages(filters).subscribe(
