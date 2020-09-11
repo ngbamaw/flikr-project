@@ -1,10 +1,19 @@
 .slider {
-  display: flex;
+    width: 50%;
 }
 
-.img-container {
-  padding: 10px;
-  background: white;
-  padding-bottom: 60px;
-  box-shadow: rgb(0, 217, 255) 0px 0px 15px;
+.img-container{
+    width: 500px;
+    padding: 10px;
+    background: white;
+    padding-bottom: 7%;
+    box-shadow: rgb(119, 119, 119) 0px 0px 15px;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.viewport-carosel{
+    height: 500px;
 }

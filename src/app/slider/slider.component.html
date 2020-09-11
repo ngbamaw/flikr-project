@@ -1,10 +1,23 @@
-<div class="slider">
-  <i class="pi pi-arrow-left" style="font-size: 2rem"></i>
-  <div *ngFor="let image of images">
-    <div class="img-container">
-      <img [src]="buildImgSrc(image)" />
-    </div>
-  </div>
-  <i class="pi pi-arrow-right" style="font-size: 2rem"></i>
-  <i class="pi pi-arrow-left" style="font-size: 2rem"></i>
-</div>
+<p-carousel
+    class="slider"
+    [numVisible]="3"
+    [numScroll]="3"
+    styleClass="viewport-carosel"
+    verticalViewPortHeight="352px"
+    [value]="images"
+>
+    <ng-template let-image pTemplate="item">
+        <div class="img-container">
+            <img [src]="buildImgSrc(image)" />
+        </div>
+    </ng-template>
+    <!--
+    <div *ngIf="!images.length">
+        <div class="img-container">
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/21/Solid_black.svg"
+            />
+        </div>
+    </div> 
+  -->
+</p-carousel>

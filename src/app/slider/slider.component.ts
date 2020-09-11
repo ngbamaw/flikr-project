@@ -20,7 +20,9 @@ export class SliderComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.images = [];
+  }
 
   buildImgSrc(image: Photo) {
     const extension = '.jpg';
