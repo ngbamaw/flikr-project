@@ -11,6 +11,7 @@
         id="tags"
         placeholder="Search.."
         formControlName="tags"
+        pInputText
     />
     <p-dropdown
         [options]="sizes"
@@ -20,26 +21,30 @@
         optionLabel="label"
         [showClear]="true"
     ></p-dropdown>
-    <input type="date" formControlName="min_date" />
-    <input type="date" formControlName="max_date" />
+    <p-calendar
+        formControlName="min_date"
+        placeholder="Minimum upload date"
+    ></p-calendar>
+    <p-calendar
+        formControlName="min_date"
+        placeholder="Maximum upload date"
+    ></p-calendar>
     <label form="added_tags">Added tags</label>
-    <input
+    <p-chips
         type="text"
         id="added_tags"
         name="added_tags"
+        separator=","
         formControlName="added_tags"
-    />
-    <div
-        *ngIf="tags.hasError('whitespace') || added_tags.hasError('whitespace')"
-    >
+    ></p-chips>
+    <div *ngIf="tags.hasError('whitespace')">
         Inputs must be comma seperated, no spaces allowed
     </div>
     <label for="in_gal">Must be in gallery</label>
-    <input
-        type="checkbox"
+    <p-inputSwitch
         name="in_gal"
         id="in_gal"
         formControlName="is_in_gallery"
-    />
+    ></p-inputSwitch>
     <p-button label="Search photos" type="submit"></p-button>
 </form>

@@ -1,8 +1,7 @@
 .slider {
-    width: 50%;
 }
 
-.img-container{
+.img-container {
     width: 500px;
     padding: 10px;
     background: white;
@@ -14,6 +13,6 @@
     width: 100%;
 }
 
-.viewport-carosel{
+.viewport-carosel {
     height: 500px;
 }
