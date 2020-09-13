@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { Photo } from '../models';
+import { buildImgSrc } from '../utils';
 
 @Component({
     selector: 'app-list',
@@ -17,4 +18,8 @@ export class ListComponent implements OnInit {
     size?: number;
 
     ngOnInit(): void {}
+
+    getSrc(image: Photo) {
+        return buildImgSrc(image, this.size);
+    }
 }

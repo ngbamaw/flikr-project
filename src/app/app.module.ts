@@ -12,6 +12,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { DataViewModule } from 'primeng/dataview';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { ListComponent } from './list/list.component';
         ChipsModule,
         InputTextModule,
         ToggleButtonModule,
+        DataViewModule,
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

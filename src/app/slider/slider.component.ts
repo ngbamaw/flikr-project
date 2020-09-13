@@ -1,36 +1,28 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Photo } from '../models';
+import { buildImgSrc } from '../utils';
 
 @Component({
-  selector: 'app-slider',
-  templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css'],
+    selector: 'app-slider',
+    templateUrl: './slider.component.html',
+    styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-  current: number = 0;
-  protocol = 'https://';
+    current: number = 0;
 
-  @Input()
-  images: Photo[];
+    @Input()
+    images: Photo[];
 
-  @Input()
-  size?: number;
+    @Input()
+    size?: number;
 
-  scales = [0.7, 0.8, 0.9, 1, 0.9, 0.8, 0.7];
+    constructor() {}
 
-  constructor() {}
-
-  ngOnInit(): void {
-    this.images = [];
-  }
-
-  buildImgSrc(image: Photo) {
-    const extension = '.jpg';
-    let base = `${this.protocol}farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}`;
-    if (this.size) {
-      base = `${base}_${this.size}`;
+    ngOnInit(): void {
+        this.images = [];
     }
 
-    return `${base}${extension}`;
-  }
+    getSrc(image: Photo) {
+        return buildImgSrc(image, this.size);
+    }
 }
