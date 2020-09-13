@@ -4,7 +4,7 @@
     class="p-fluid p-grid p-formgrid"
     ngNativeValidate
 >
-    <span class="p-input-icon-left p-col-12 p-md-4" style="margin-bottom: 10px;">
+    <span class="p-input-icon-left p-col-12 p-lg-2" style="margin-bottom: 10px;">
         <i class="pi pi-search" style="left: 17.5px;"></i>
         <input
             placeholder="Search..."
@@ -18,7 +18,8 @@
         />
     </span>
 
-    <div class="p-field p-col-12 p-md-4">
+    <div class="p-col-12 p-lg-3"></div>
+    <div class="p-field p-col-12 p-lg-2">
         <label for="size-chooser">Size</label>
         <p-dropdown
             [options]="sizes"
@@ -31,7 +32,7 @@
         ></p-dropdown>
     </div>
 
-    <div class="p-field p-col-12 p-md-4">
+    <div class="p-field p-col-12 p-lg-1">
         <label for="icon">Date minimun</label>
         <p-calendar
             formControlName="min_date"
@@ -39,7 +40,7 @@
             inputId="icon"
         ></p-calendar>
     </div>
-    <div class="p-field p-col-12 p-md-4">
+    <div class="p-field p-col-12 p-lg-1">
         <label for="icon">Date maximun</label>
         <p-calendar
             formControlName="max_date"
@@ -48,7 +49,7 @@
         ></p-calendar>
     </div>
 
-    <div class="p-field p-col-12 p-md-4">
+    <div class="p-field p-col-12 p-lg-1">
         <label for="icon">Tags</label>
         <p-chips formControlName="added_tags" separator=","></p-chips>
     </div>
@@ -59,7 +60,7 @@
         id="added_tags"
         name="added_tags"
         formControlName="added_tags"
-    /> p-col-12 p-md-4
+    /> p-col-12 p-lg-2
     -->
     <div
         *ngIf="tags.hasError('whitespace') || added_tags.hasError('whitespace')"
@@ -67,17 +68,16 @@
         Inputs must be comma seperated, no spaces allowed
     </div>
 
-    <div class="p-field-checkbox p-col-12 p-md-4">
+    <div class="p-field-checkbox p-col-12 p-lg-1">
         <label for="in_gal" style="margin-right: 5px;">Must be in gallery</label>
         <p-checkbox
             id="in_gal"
             [formControl]="searchForm.controls['is_in_gallery']"
         ></p-checkbox>
     </div>
-    <div class="p-col-12 p-md-4"></div>
-    <div class="p-col-12 p-md-4"></div>
+    <div class="p-col-12 p-lg-5"></div>
     <p-button
-        class="p-col-12 p-md-4"
+        class="p-col-12 p-lg-2"
         type="submit"
         label="Search photos"
     ></p-button>
