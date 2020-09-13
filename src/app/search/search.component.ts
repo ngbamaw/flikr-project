@@ -71,7 +71,6 @@ export class SearchComponent implements OnInit {
         },
     ];
     added_tags_focused: boolean = false;
-
     selectedSize: Size;
 
     @Output()
@@ -117,14 +116,10 @@ export class SearchComponent implements OnInit {
     }
 
     onFocus() {
-        console.log(true);
-
         this.added_tags_focused = true;
     }
 
     onBlur() {
-        console.log(false);
-
         this.added_tags_focused = false;
     }
 

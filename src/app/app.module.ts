@@ -11,6 +11,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,8 @@ import { SliderComponent } from './slider/slider.component';
         CalendarModule,
         ChipsModule,
         InputTextModule,
+        CalendarModule,
+        CheckboxModule,
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

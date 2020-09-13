@@ -1,11 +1,14 @@
 <form
     [formGroup]="searchForm"
     (ngSubmit)="onSubmit(searchForm.value)"
+    class="p-fluid p-grid p-formgrid"
     ngNativeValidate
     class="form"
 >
-    <span>
+    <span class="p-input-icon-left p-col-12 p-lg-2" style="margin-bottom: 10px">
+        <i class="pi pi-search"></i>
         <input
+            placeholder="Search..."
             type="text"
             minlength="2"
             required
@@ -28,14 +31,20 @@
         optionLabel="label"
         [showClear]="true"
     ></p-dropdown>
-    <p-calendar
-        formControlName="min_date"
-        placeholder="Minimum upload date"
-    ></p-calendar>
-    <p-calendar
-        formControlName="min_date"
-        placeholder="Maximum upload date"
-    ></p-calendar>
+    <div class="p-field p-col-12 p-lg-1">
+        <p-calendar
+            formControlName="min_date"
+            placeholder="Minimum upload date"
+            [showIcon]="true"
+        ></p-calendar>
+    </div>
+    <div class="p-field p-col-12 p-lg-1">
+        <p-calendar
+            formControlName="min_date"
+            placeholder="Maximum upload date"
+            [showIcon]="true"
+        ></p-calendar>
+    </div>
     <span class="span-group">
         <p-chips
             type="text"
@@ -59,5 +68,12 @@
             formControlName="is_in_gallery"
         ></p-inputSwitch>
     </span>
-    <p-button label="Search photos" type="submit"></p-button>
+
+    <div class="p-col-12 p-lg-5"></div>
+
+    <p-button
+        class="p-col-12 p-lg-2"
+        type="submit"
+        label="Search photos"
+    ></p-button>
 </form>
