@@ -1,0 +1,29 @@
+<div class="card">
+    <p-dataView
+        #dv
+        [value]="images"
+        [paginator]="true"
+        [rows]="9"
+        filterBy="name"
+        layout="grid"
+    >
+        <ng-template pTemplate="header">
+            <h3>Flickr Results</h3>
+        </ng-template>
+        <ng-template let-image pTemplate="gridItem">
+            <div class="p-col-12 p-md-4">
+                <div class="image-grid-item card">
+                    <div class="image-grid-item-top"></div>
+                    <div class="image-grid-item-content">
+                        <img [src]="getSrc(image)" [alt]="image.title" />
+                        <div class="image-name">{{ image.title }}</div>
+                        <div class="image-description"></div>
+                    </div>
+                    <div class="image-grid-item-bottom">
+                        <span class="image-price">{{ image.views }} views</span>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
