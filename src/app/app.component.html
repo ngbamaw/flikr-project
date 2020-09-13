@@ -1,8 +1,27 @@
 <div id="root">
-  <h1>Welcome in Flickr Search Engine</h1>
-  <app-search
-    (onSearchImages)="updateImages($event)"
-    (imageSizeEmitter)="updateSize($event)"
-  ></app-search>
-  <app-slider [images]="images" [size]="picsSize"></app-slider>
+    <h1>Welcome in Flickr Search Engine</h1>
+    <app-search
+        (onSearchImages)="updateImages($event)"
+        (imageSizeEmitter)="updateSize($event)"
+    ></app-search>
+
+    <p-toggleButton
+        [(ngModel)]="showlist"
+        onLabel="List"
+        offLabel="Slider"
+        onIcon="pi pi-align-justify"
+        offIcon="pi pi-ellipsis-h"
+        [class]="showlist ? 'toggle active' : 'toggle inactive'"
+        [style]="{ width: '10em' }"
+    ></p-toggleButton>
+
+    <main class="container">
+        <div *ngIf="showlist === true; then list; else slider"></div>
+        <ng-template #list>
+            <app-list [images]="images" [size]="picsSize"></app-list>
+        </ng-template>
+        <ng-template #slider>
+            <app-slider [images]="images" [size]="picsSize"></app-slider>
+        </ng-template>
+    </main>
 </div>

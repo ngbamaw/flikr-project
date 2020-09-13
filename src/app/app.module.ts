@@ -11,14 +11,21 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { InputTextModule } from 'primeng/inputtext';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SliderComponent } from './slider/slider.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-    declarations: [AppComponent, SearchComponent, SliderComponent],
+    declarations: [
+        AppComponent,
+        SearchComponent,
+        SliderComponent,
+        ListComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -33,6 +40,7 @@ import { SliderComponent } from './slider/slider.component';
         CalendarModule,
         ChipsModule,
         InputTextModule,
+        ToggleButtonModule,
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
