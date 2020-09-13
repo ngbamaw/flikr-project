@@ -12,3 +12,15 @@
 .tags {
     max-height: 36px;
 }
+
+.sub {
+    margin-top: 8px;
+}
+
+.galgroup {
+    margin-top: -16px;
+}
+
+.galgroup > .label {
+    margin-bottom: 8px;
+}

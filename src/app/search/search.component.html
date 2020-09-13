@@ -4,17 +4,22 @@
     ngNativeValidate
     class="form"
 >
-    <input
-        type="text"
-        minlength="2"
-        required
-        name="tags"
-        id="tags"
-        class="tags"
-        placeholder="Search.."
-        formControlName="tags"
-        pInputText
-    />
+    <span>
+        <input
+            type="text"
+            minlength="2"
+            required
+            name="tags"
+            id="tags"
+            class="tags"
+            placeholder="Search.."
+            formControlName="tags"
+            pInputText
+        />
+        <div class="sub" *ngIf="tags.hasError('whitespace')">
+            Inputs must be comma seperated, no spaces allowed
+        </div>
+    </span>
     <p-dropdown
         [options]="sizes"
         [(ngModel)]="selectedSize"
@@ -41,14 +46,13 @@
             (onFocus)="onFocus()"
             (onBlur)="onBlur()"
         ></p-chips>
+        <div class="sub" *ngIf="added_tags_focused == true">
+            Type on Enter to add a tag
+        </div>
     </span>
 
-    <div *ngIf="added_tags_focused == true">Type on enter to add a tag</div>
-    <div *ngIf="tags.hasError('whitespace')" class="tags_err">
-        Inputs must be comma seperated, no spaces allowed
-    </div>
-    <span class="span-group">
-        <label for="in_gal">Must be in gallery</label>
+    <span class="span-group galgroup">
+        <label for="in_gal" class="label">Must be in gallery</label>
         <p-inputSwitch
             name="in_gal"
             id="in_gal"
