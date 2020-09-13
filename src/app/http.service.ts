@@ -36,7 +36,7 @@ export class HttpService {
     const { tags, added_tags, is_in_gallery, min_date, max_date } = filters;
     const params = this.params
       .append('method', 'flickr.photos.search')
-      .append('tags', `${tags}${added_tags ? `,${added_tags}` : ''}`)
+      .append('tags', `${tags}${added_tags ? `,${added_tags.join(',')}` : ''}`)
       .append('in_gallery', `${is_in_gallery}`)
       .append('min_upload_date', `${min_date ? min_date : ''}`)
       .append('max_upload_date', `${max_date ? max_date : ''}`);

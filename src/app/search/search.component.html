@@ -1,45 +1,84 @@
 <form
     [formGroup]="searchForm"
     (ngSubmit)="onSubmit(searchForm.value)"
+    class="p-fluid p-grid p-formgrid"
     ngNativeValidate
 >
-    <input
-        type="text"
-        minlength="2"
-        required
-        name="tags"
-        id="tags"
-        placeholder="Search.."
-        formControlName="tags"
-    />
-    <p-dropdown
-        [options]="sizes"
-        [(ngModel)]="selectedSize"
-        formControlName="size"
-        placeholder="Choose your prefered size"
-        optionLabel="label"
-        [showClear]="true"
-    ></p-dropdown>
-    <input type="date" formControlName="min_date" />
-    <input type="date" formControlName="max_date" />
+    <span class="p-input-icon-left p-col-12 p-md-4" style="margin-bottom: 10px;">
+        <i class="pi pi-search" style="left: 17.5px;"></i>
+        <input
+            placeholder="Search..."
+            type="text"
+            minlength="2"
+            required
+            name="tags"
+            id="tags"
+            formControlName="tags"
+            pInputText
+        />
+    </span>
+
+    <div class="p-field p-col-12 p-md-4">
+        <label for="size-chooser">Size</label>
+        <p-dropdown
+            [options]="sizes"
+            [(ngModel)]="selectedSize"
+            formControlName="size"
+            placeholder="Choose your prefered size"
+            id="size-chooser"
+            optionLabel="label"
+            [showClear]="true"
+        ></p-dropdown>
+    </div>
+
+    <div class="p-field p-col-12 p-md-4">
+        <label for="icon">Date minimun</label>
+        <p-calendar
+            formControlName="min_date"
+            [showIcon]="true"
+            inputId="icon"
+        ></p-calendar>
+    </div>
+    <div class="p-field p-col-12 p-md-4">
+        <label for="icon">Date maximun</label>
+        <p-calendar
+            formControlName="max_date"
+            [showIcon]="true"
+            inputId="icon"
+        ></p-calendar>
+    </div>
+
+    <div class="p-field p-col-12 p-md-4">
+        <label for="icon">Tags</label>
+        <p-chips formControlName="added_tags" separator=","></p-chips>
+    </div>
+    <!--
     <label form="added_tags">Added tags</label>
     <input
         type="text"
         id="added_tags"
         name="added_tags"
         formControlName="added_tags"
-    />
+    /> p-col-12 p-md-4
+    -->
     <div
         *ngIf="tags.hasError('whitespace') || added_tags.hasError('whitespace')"
     >
         Inputs must be comma seperated, no spaces allowed
     </div>
-    <label for="in_gal">Must be in gallery</label>
-    <input
-        type="checkbox"
-        name="in_gal"
-        id="in_gal"
-        formControlName="is_in_gallery"
-    />
-    <button type="submit">Search photos</button>
+
+    <div class="p-field-checkbox p-col-12 p-md-4">
+        <label for="in_gal" style="margin-right: 5px;">Must be in gallery</label>
+        <p-checkbox
+            id="in_gal"
+            [formControl]="searchForm.controls['is_in_gallery']"
+        ></p-checkbox>
+    </div>
+    <div class="p-col-12 p-md-4"></div>
+    <div class="p-col-12 p-md-4"></div>
+    <p-button
+        class="p-col-12 p-md-4"
+        type="submit"
+        label="Search photos"
+    ></p-button>
 </form>

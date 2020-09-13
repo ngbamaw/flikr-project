@@ -6,6 +6,9 @@ import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChipsModule } from 'primeng/chips';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +27,9 @@ import { SliderComponent } from './slider/slider.component';
         CarouselModule,
         DropdownModule,
         BrowserAnimationsModule,
+        ChipsModule,
+        CalendarModule,
+        CheckboxModule
     ],
     providers: [],
     bootstrap: [AppComponent],
