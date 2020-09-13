@@ -70,6 +70,7 @@ export class SearchComponent implements OnInit {
             value: 'c',
         },
     ];
+    added_tags_focused: boolean = false;
 
     selectedSize: Size;
 
@@ -113,6 +114,18 @@ export class SearchComponent implements OnInit {
 
     get tags() {
         return this.searchForm.get('tags');
+    }
+
+    onFocus() {
+        console.log(true);
+
+        this.added_tags_focused = true;
+    }
+
+    onBlur() {
+        console.log(false);
+
+        this.added_tags_focused = false;
     }
 
     onSubmit(filters: SearchComponent.Filters) {

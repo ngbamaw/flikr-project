@@ -1,0 +1,14 @@
+.form {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.span-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tags {
+    max-height: 36px;
+}

@@ -2,6 +2,7 @@
     [formGroup]="searchForm"
     (ngSubmit)="onSubmit(searchForm.value)"
     ngNativeValidate
+    class="form"
 >
     <input
         type="text"
@@ -9,6 +10,7 @@
         required
         name="tags"
         id="tags"
+        class="tags"
         placeholder="Search.."
         formControlName="tags"
         pInputText
@@ -29,22 +31,29 @@
         formControlName="min_date"
         placeholder="Maximum upload date"
     ></p-calendar>
-    <label form="added_tags">Added tags</label>
-    <p-chips
-        type="text"
-        id="added_tags"
-        name="added_tags"
-        separator=","
-        formControlName="added_tags"
-    ></p-chips>
-    <div *ngIf="tags.hasError('whitespace')">
+    <span class="span-group">
+        <p-chips
+            type="text"
+            id="added_tags"
+            name="added_tags"
+            placeholder="Added tags"
+            formControlName="added_tags"
+            (onFocus)="onFocus()"
+            (onBlur)="onBlur()"
+        ></p-chips>
+    </span>
+
+    <div *ngIf="added_tags_focused == true">Type on enter to add a tag</div>
+    <div *ngIf="tags.hasError('whitespace')" class="tags_err">
         Inputs must be comma seperated, no spaces allowed
     </div>
-    <label for="in_gal">Must be in gallery</label>
-    <p-inputSwitch
-        name="in_gal"
-        id="in_gal"
-        formControlName="is_in_gallery"
-    ></p-inputSwitch>
+    <span class="span-group">
+        <label for="in_gal">Must be in gallery</label>
+        <p-inputSwitch
+            name="in_gal"
+            id="in_gal"
+            formControlName="is_in_gallery"
+        ></p-inputSwitch>
+    </span>
     <p-button label="Search photos" type="submit"></p-button>
 </form>
