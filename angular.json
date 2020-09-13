@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "flickrSearchEngine"
+  "defaultProject": "flickrSearchEngine",
+  "cli": {
+    "analytics": false
+  }
 }

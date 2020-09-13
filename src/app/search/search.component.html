@@ -1,42 +1,45 @@
 <form
-  [formGroup]="searchForm"
-  (ngSubmit)="onSubmit(searchForm.value)"
-  method="post"
+    [formGroup]="searchForm"
+    (ngSubmit)="onSubmit(searchForm.value)"
+    ngNativeValidate
 >
-  <input
-    type="text"
-    minlength="2"
-    required
-    name="tags"
-    id="tags"
-    placeholder="Search.."
-    formControlName="tags"
-  />
-  <select formControlName="size">
-    <option value="" disabled>Choose your prefered size</option>
-    <option *ngFor="let size of sizes" [value]="size.value">
-      {{ size.text }}
-    </option>
-  </select>
-
-  <input type="date" formControlName="min_date" />
-  <input type="date" formControlName="max_date" />
-  <label form="added_tags">Added tags</label>
-  <input
-    type="text"
-    id="added_tags"
-    name="added_tags"
-    formControlName="added_tags"
-  />
-  <div *ngIf="tags.hasError('whitespace') || added_tags.hasError('whitespace')">
-    Inputs must be comma seperated, no spaces allowed
-  </div>
-  <label for="in_gal">Must be in gallery</label>
-  <input
-    type="checkbox"
-    name="in_gal"
-    id="in_gal"
-    formControlName="is_in_gallery"
-  />
-  <button type="submit">Search photos</button>
+    <input
+        type="text"
+        minlength="2"
+        required
+        name="tags"
+        id="tags"
+        placeholder="Search.."
+        formControlName="tags"
+    />
+    <p-dropdown
+        [options]="sizes"
+        [(ngModel)]="selectedSize"
+        formControlName="size"
+        placeholder="Choose your prefered size"
+        optionLabel="label"
+        [showClear]="true"
+    ></p-dropdown>
+    <input type="date" formControlName="min_date" />
+    <input type="date" formControlName="max_date" />
+    <label form="added_tags">Added tags</label>
+    <input
+        type="text"
+        id="added_tags"
+        name="added_tags"
+        formControlName="added_tags"
+    />
+    <div
+        *ngIf="tags.hasError('whitespace') || added_tags.hasError('whitespace')"
+    >
+        Inputs must be comma seperated, no spaces allowed
+    </div>
+    <label for="in_gal">Must be in gallery</label>
+    <input
+        type="checkbox"
+        name="in_gal"
+        id="in_gal"
+        formControlName="is_in_gallery"
+    />
+    <p-button label="Search photos" type="submit"></p-button>
 </form>
