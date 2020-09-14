@@ -13,21 +13,30 @@ export class HttpService {
     private reponseFormat: string = 'json';
 
     constructor(private http: HttpClient) {
-        let headers = new HttpHeaders();
+        const headers = new HttpHeaders();
         headers.append('Content-Type', 'application/json');
         this.headers = headers;
 
-        let params = new HttpParams()
+        const extras = [
+            'description',
+            'date_upload',
+            'owner_name',
+            'views',
+            'tags',
+            'last_update',
+            'geo',
+            'license',
+        ];
+
+        const params = new HttpParams()
             .append('api_key', config.API_KEY)
             .append('format', this.reponseFormat)
             .append('nojsoncallback', '1')
             .append('tag_mode', 'all')
             .append('per_page', '20')
             .append('media', 'photos')
-            .append(
-                'extras',
-                'description,date_upload,owner_name,views,tags,last_update'
-            );
+            .append('extras', extras.join(','))
+            .append('has_geo', 'true');
 
         this.params = params;
     }

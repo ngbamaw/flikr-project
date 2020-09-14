@@ -27,4 +27,8 @@ export class ImageComponent implements OnInit {
     getSrc() {
         return buildImgSrc(this.image, this.size);
     }
+
+    toLocalDate(date: number) {
+        return new Date(date * 1000).toLocaleDateString('fr-FR');
+    }
 }
