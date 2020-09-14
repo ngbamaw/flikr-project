@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SliderComponent } from './slider/slider.component';
 import { ListComponent } from './list/list.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { ListComponent } from './list/list.component';
         SearchComponent,
         SliderComponent,
         ListComponent,
+        ImageComponent,
     ],
     imports: [
         BrowserModule,
