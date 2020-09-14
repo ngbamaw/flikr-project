@@ -18,8 +18,4 @@ export class ListComponent implements OnInit {
     size?: number;
 
     ngOnInit(): void {}
-
-    getSrc(image: Photo) {
-        return buildImgSrc(image, this.size);
-    }
 }

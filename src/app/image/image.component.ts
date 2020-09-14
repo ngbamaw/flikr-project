@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Photo } from '../models';
+import { buildImgSrc } from '../utils';
 
 @Component({
     selector: 'app-image',
@@ -8,11 +10,21 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ImageComponent implements OnInit {
     constructor() {}
 
-    @Input()
-    src: string;
+    showMore: boolean = false;
 
     @Input()
-    alt: string = 'flickr image';
+    image: Photo;
+
+    @Input()
+    size?: number;
 
     ngOnInit(): void {}
+
+    toggleDescription() {
+        this.showMore = !this.showMore;
+    }
+
+    getSrc() {
+        return buildImgSrc(this.image, this.size);
+    }
 }

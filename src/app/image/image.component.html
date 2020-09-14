@@ -1,1 +1,18 @@
-<img [src]="src" class="image" />
+<span>
+    <img
+        (click)="toggleDescription()"
+        [src]="getSrc()"
+        [alt]="image.title"
+        class="image"
+    />
+    <div class="image-name">{{ image.title }}</div>
+    <div *ngIf="showMore === true">
+        <ul>
+            <li>
+                {{ image.description }}
+            </li>
+            <li>{{ image.dateupload.toString() }}</li>
+            <li class="image-price">{{ image.views }} views</li>
+        </ul>
+    </div>
+</span>

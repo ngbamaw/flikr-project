@@ -15,13 +15,7 @@
                 <div class="image-grid-item card">
                     <div class="image-grid-item-top"></div>
                     <div class="image-grid-item-content">
-                        <app-image [src]="getSrc(image)" [alt]="image.title">
-                        </app-image>
-                        <div class="image-name">{{ image.title }}</div>
-                        <div class="image-description"></div>
-                    </div>
-                    <div class="image-grid-item-bottom">
-                        <span class="image-price">{{ image.views }} views</span>
+                        <app-image [image]="image" [size]="size"></app-image>
                     </div>
                 </div>
             </div>

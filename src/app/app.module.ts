@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
@@ -30,21 +31,22 @@ import { ImageComponent } from './image/image.component';
         ImageComponent,
     ],
     imports: [
-        BrowserModule,
         AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
         ButtonModule,
-        CarouselModule,
-        DropdownModule,
         BrowserAnimationsModule,
-        InputSwitchModule,
+        CommonModule,
+        BrowserModule,
         CalendarModule,
+        CarouselModule,
         ChipsModule,
+        DataViewModule,
+        DropdownModule,
+        FormsModule,
+        HttpClientModule,
+        InputSwitchModule,
         InputTextModule,
         ToggleButtonModule,
-        DataViewModule,
+        ReactiveFormsModule,
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
