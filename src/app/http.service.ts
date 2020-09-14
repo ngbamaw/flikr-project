@@ -17,6 +17,16 @@ export class HttpService {
         headers.append('Content-Type', 'application/json');
         this.headers = headers;
 
+        const params = new HttpParams()
+            .append('api_key', config.API_KEY)
+            .append('format', this.reponseFormat)
+            .append('nojsoncallback', '1')
+            .append('tag_mode', 'all');
+        this.params = params;
+    }
+
+    getImages(filters: SearchComponent.Filters) {
+        const { tags, added_tags, is_in_gallery, min_date, max_date } = filters;
         const extras = [
             'description',
             'date_upload',
@@ -28,21 +38,6 @@ export class HttpService {
             'license',
         ];
 
-        const params = new HttpParams()
-            .append('api_key', config.API_KEY)
-            .append('format', this.reponseFormat)
-            .append('nojsoncallback', '1')
-            .append('tag_mode', 'all')
-            .append('per_page', '20')
-            .append('media', 'photos')
-            .append('extras', extras.join(','))
-            .append('has_geo', 'true');
-
-        this.params = params;
-    }
-
-    getImages(filters: SearchComponent.Filters) {
-        const { tags, added_tags, is_in_gallery, min_date, max_date } = filters;
         const params = this.params
             .append('method', 'flickr.photos.search')
             .append(
@@ -53,8 +48,21 @@ export class HttpService {
             )
             .append('in_gallery', `${is_in_gallery}`)
             .append('min_upload_date', `${min_date ? min_date : ''}`)
-            .append('max_upload_date', `${max_date ? max_date : ''}`);
+            .append('max_upload_date', `${max_date ? max_date : ''}`)
+            .append('per_page', '20')
+            .append('media', 'photos')
+            .append('extras', extras.join(','))
+            .append('has_geo', 'true');
 
+        return this.http.get(`${config.BASE_API_URL}/`, {
+            headers: this.headers,
+            params,
+        });
+    }
+
+    getComments(photo_id: string) {
+        const params = this.params;
+        params.append('photo_id', photo_id);
         return this.http.get(`${config.BASE_API_URL}/`, {
             headers: this.headers,
             params,
