@@ -20,5 +20,5 @@ npm run test
 
 # Authors
 
-Landry Monga
-William Ngbama
+-   Landry Monga
+-   William Ngbama
