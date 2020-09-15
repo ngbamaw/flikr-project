@@ -21,8 +21,4 @@ export class SliderComponent implements OnInit {
     ngOnInit(): void {
         this.images = [];
     }
-
-    getSrc(image: Photo) {
-        return buildImgSrc(image, this.size);
-    }
 }

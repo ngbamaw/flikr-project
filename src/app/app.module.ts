@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
@@ -20,6 +21,7 @@ import { SearchComponent } from './search/search.component';
 import { SliderComponent } from './slider/slider.component';
 import { ListComponent } from './list/list.component';
 import { SliderTheme1Component } from './slider-theme1/slider-theme1.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
     declarations: [
@@ -28,23 +30,25 @@ import { SliderTheme1Component } from './slider-theme1/slider-theme1.component';
         SliderComponent,
         ListComponent,
         SliderTheme1Component,
+        ImageComponent,
     ],
     imports: [
-        BrowserModule,
         AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
         ButtonModule,
-        CarouselModule,
-        DropdownModule,
         BrowserAnimationsModule,
-        InputSwitchModule,
+        CommonModule,
+        BrowserModule,
         CalendarModule,
+        CarouselModule,
         ChipsModule,
+        DataViewModule,
+        DropdownModule,
+        FormsModule,
+        HttpClientModule,
+        InputSwitchModule,
         InputTextModule,
         ToggleButtonModule,
-        DataViewModule,
+        ReactiveFormsModule,
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
