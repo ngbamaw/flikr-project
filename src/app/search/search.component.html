@@ -6,24 +6,25 @@
     class="form"
     role="search"
 >
-    <span class="p-input-icon-left p-col-12 p-lg-2" style="margin-bottom: 10px">
+    <div class="p-input-icon-left p-col-12 p-lg-2" style="margin-bottom: 10px">
         <i class="pi pi-search"></i>
-        <input
+        <p-chips
+            id="tags"
+            name="tags"
+            class="tags"
             placeholder="Search..."
             type="text"
             minlength="2"
-            required
-            name="tags"
-            id="tags"
-            class="tags"
             placeholder="Search.."
             formControlName="tags"
+            [max]="1"
+            required
             pInputText
-        />
+        ></p-chips>
         <div class="sub" *ngIf="tags.hasError('whitespace')">
             Inputs must be comma seperated, no spaces allowed
         </div>
-    </span>
+    </div>
     <p-dropdown
         [options]="sizes"
         [(ngModel)]="selectedSize"
@@ -53,6 +54,7 @@
             name="added_tags"
             placeholder="Added tags"
             formControlName="added_tags"
+            [allowDuplicate]="false"
             (onFocus)="onFocus()"
             (onBlur)="onBlur()"
         ></p-chips>
