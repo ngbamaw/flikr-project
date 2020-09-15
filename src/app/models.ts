@@ -8,7 +8,7 @@ export interface Photo {
     dateupload: string; // timestamp
     views: string;
     ownername: string;
-    longitutde: string;
+    longitude: string;
     latitude: string;
 }
 
@@ -22,6 +22,6 @@ export const mockPhoto: Photo = {
     dateupload: '5425454',
     views: '33',
     ownername: 'test',
-    longitutde: '44.55',
+    longitude: '44.55',
     latitude: '-22.045',
 };
