@@ -1,12 +1,4 @@
-import { Component, OnInit, Directive, HostListener } from '@angular/core';
-@Directive({ selector: 'div[transition]' })
-class HandleTransitionEnd {
-    @HostListener('transitionend', ['$event.target'])
-    onTransitionEnd(div) {
-        console.log(div);
-    }
-}
-
+import { Component, OnInit, HostListener } from '@angular/core';
 @Component({
     selector: 'app-slider-theme1',
     templateUrl: './slider-theme1.component.html',

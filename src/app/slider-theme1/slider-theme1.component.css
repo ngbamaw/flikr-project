@@ -55,13 +55,13 @@
 
 .img-container.hidden-right.move-left {
     transform: scale(0.8);
-    right: 100px;
+    right: 105px;
     opacity: 0.3;
 }
 
 .img-container.highlight.move-right {
-    transform: scale(0.8);
-    left: 105px;
+    transform: scale(0.8) translateX(680px);
+    right: -10px;
     opacity: 0.3;
 }
 
@@ -70,9 +70,9 @@
     transform: scale(0.5) translateX(550px);
 }
 
-.img-container.first-of-type.move-right {
+.img-container.first.move-right {
     opacity: 1;
-    transform: scale(1) translateX(100%);
+    transform: scale(1) translateX(545px);
 }
 
 .img-container.hidden-left.move-right {
