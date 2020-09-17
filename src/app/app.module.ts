@@ -20,7 +20,6 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SliderComponent } from './slider/slider.component';
 import { ListComponent } from './list/list.component';
-import { SliderTheme1Component } from './slider-theme1/slider-theme1.component';
 import { ImageComponent } from './image/image.component';
 
 @NgModule({
@@ -29,7 +28,7 @@ import { ImageComponent } from './image/image.component';
         SearchComponent,
         SliderComponent,
         ListComponent,
-        SliderTheme1Component,
+        SliderComponent,
         ImageComponent,
     ],
     imports: [

@@ -1,4 +1,7 @@
-<span>
+<div
+    class="img-container hidden-left"
+    [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+>
     <img
         (click)="toggleDescription()"
         [src]="getSrc()"
@@ -19,4 +22,4 @@
             <li class="image-owner">latitude: {{ image.latitude }}</li>
         </ul>
     </div>
-</span>
+</div>
