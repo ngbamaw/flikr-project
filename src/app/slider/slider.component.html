@@ -12,13 +12,13 @@
             <div class="photo-item">
                 <div class="photo-item-content">
                     <div class="p-mb-3">
-                        <img
-                            [src]="getSrc(image)"
-                            [alt]="image.id"
+                        <app-image
+                            [image]="image"
+                            [size]="size"
                             class="product-image"
-                        />
+                        >
+                        </app-image>
                     </div>
-                    <h4 class="p-mb-1">{{ image.title }}</h4>
                 </div>
             </div>
         </ng-template>
