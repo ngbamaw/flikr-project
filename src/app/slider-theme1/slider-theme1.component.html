@@ -1,14 +1,63 @@
+<p>moveLeft: {{ moveLeft }}</p>
+<p>moveRight: {{ moveRight }}</p>
 <div class="sweep">
-    <div class="img-container">
+    <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded arrow-btn"
+        icon="pi pi-arrow-left"
+        (click)="moveLeft = true"
+    ></button>
+
+    <div
+        class="img-container hidden-left"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
         <img
             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
         />
     </div>
-    <div class="img-container">
+    <div
+        class="img-container first"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
         <img
             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
         />
     </div>
+    <div
+        class="img-container highlight"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <img
+            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+        />
+    </div>
+    <div
+        class="img-container last"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <img
+            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+        />
+    </div>
+    <div
+        class="img-container hidden-right"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <img
+            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+        />
+    </div>
+    <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded arrow-btn"
+        icon="pi pi-arrow-right"
+        (click)="moveRight = true"
+    ></button>
 </div>
 <!--
 <div class="sweep">
