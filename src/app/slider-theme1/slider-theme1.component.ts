@@ -1,4 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Photo } from '../models';
+import { buildImgSrc } from '../utils';
+
 @Component({
     selector: 'app-slider-theme1',
     templateUrl: './slider-theme1.component.html',
@@ -7,6 +10,12 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class SliderTheme1Component implements OnInit {
     moveLeft: boolean = false;
     moveRight: boolean = false;
+    current: number = 0;
+
+    @Input() images: Photo[] = [];
+
+    @Input() size?: number;
+
     constructor() {}
 
     ngOnInit(): void {}
@@ -22,6 +31,10 @@ export class SliderTheme1Component implements OnInit {
     }
     */
 
+    getSrc(index: number) {
+        return buildImgSrc(this.images[index], this.size);
+    }
+
     @HostListener('transitionend', ['$event'])
     onTransitionEnd(event: Event) {
         const div = event.target as HTMLDivElement;
@@ -34,12 +47,6 @@ export class SliderTheme1Component implements OnInit {
             div.classList.add('not-transition');
             this.moveLeft = false;
             this.moveRight = false;
-            // div.classList.remove('not-transition');
-            /*
-            div.style.transition = '';
-            */
-        } else if (div.classList.contains('not-transition')) {
-            console.log('transend', div);
             setTimeout(() => div.classList.remove('not-transition'), 50);
         }
     }
