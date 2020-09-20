@@ -1,26 +1,16 @@
-.form {
-    display: flex;
-    justify-content: space-evenly;
+.p-field {
+    display: inline;
 }
 
-.span-group {
-    display: flex;
+.in_gal {
+    display: inline-flex;
     flex-direction: column;
-    justify-content: space-between;
+    position: relative;
+    top: -25px;
 }
 
-.tags {
-    max-height: 36px;
-}
-
-.sub {
-    margin-top: 8px;
-}
-
-.galgroup {
-    margin-top: -16px;
-}
-
-.galgroup > .label {
-    margin-bottom: 8px;
+.search-submit {
+    position: relative;
+    top: -20px;
+    left: 20px;
 }

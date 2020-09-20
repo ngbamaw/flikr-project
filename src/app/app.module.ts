@@ -28,6 +28,7 @@ import { ImageComponent } from './image/image.component';
         SearchComponent,
         SliderComponent,
         ListComponent,
+        SliderComponent,
         ImageComponent,
     ],
     imports: [

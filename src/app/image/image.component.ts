@@ -10,6 +10,9 @@ import { buildImgSrc } from '../utils';
 export class ImageComponent implements OnInit {
     constructor() {}
 
+    moveLeft: boolean = false;
+    moveRight: boolean = false;
+
     showMore: boolean = false;
 
     @Input()

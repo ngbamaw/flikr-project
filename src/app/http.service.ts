@@ -42,7 +42,7 @@ export class HttpService {
             .append('method', 'flickr.photos.search')
             .append(
                 'tags',
-                `${tags}${
+                `${tags[0]}${
                     added_tags.length > 0 ? ',' + added_tags.join(',') : ''
                 }`
             )

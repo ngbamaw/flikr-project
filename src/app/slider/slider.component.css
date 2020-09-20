@@ -1,11 +1,56 @@
-.img-container {
-    width: 500px;
-    padding: 10px;
-    background: white;
-    padding-bottom: 7%;
-    box-shadow: rgb(119, 119, 119) 0px 0px 15px;
+.sweep {
+    display: flex;
+    position: relative;
 }
 
-.img-container img {
-    width: 100%;
+.not-transition {
+    transition: none;
+}
+
+.arrow-btn {
+    margin: auto 0;
+}
+
+@keyframes placeOnRightSide {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+        right: -450px;
+    }
+    to {
+        transform: scale(0.8);
+        right: -10px;
+        opacity: 0.3;
+    }
+}
+@keyframes placeOnLeftSide {
+    from {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.8) translateX(-680px);
+        opacity: 0.3;
+        margin: 0;
+    }
+}
+@keyframes highlightFromRight {
+    from {
+        transform: scale(0.8) translateX(0);
+        opacity: 0.8;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(-100%);
+    }
+}
+@keyframes dispearToLeft {
+    from {
+        transform: scale(0.8) translateX(0);
+        opacity: 0.3;
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5) translateX(-500px);
+    }
 }

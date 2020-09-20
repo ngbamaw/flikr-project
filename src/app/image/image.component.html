@@ -1,8 +1,8 @@
-<span>
+<div class="img-container">
     <img
-        (click)="toggleDescription()"
         [src]="getSrc()"
         [alt]="image.title"
+        (click)="toggleDescription()"
         class="image"
     />
     <div class="image-name">{{ image.title }}</div>
@@ -19,4 +19,4 @@
             <li class="image-owner">latitude: {{ image.latitude }}</li>
         </ul>
     </div>
-</span>
+</div>
