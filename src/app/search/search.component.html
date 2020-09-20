@@ -6,8 +6,9 @@
     class="form"
     role="search"
 >
-    <div class="p-field p-col-2">
-        <p-chips
+    <span class="p-input-icon-left p-col-2">
+        <i class="pi pi-search"></i>
+        <input
             id="tags"
             name="tags"
             class="tags"
@@ -15,15 +16,10 @@
             type="text"
             placeholder="Search.."
             formControlName="tags"
-            [addOnBlur]="true"
-            [max]="1"
-            required
+            type="text"
             pInputText
-        ></p-chips>
-        <div class="sub" *ngIf="tags.hasError('whitespace')">
-            Inputs must be comma seperated, no spaces allowed
-        </div>
-    </div>
+        />
+    </span>
     <p-dropdown
         [options]="sizes"
         [(ngModel)]="selectedSize"
