@@ -1,21 +1,5 @@
-<div class="sweep">
-    <button
-        pButton
-        pRipple
-        type="button"
-        class="p-button-rounded arrow-btn"
-        icon="pi pi-arrow-left"
-        (click)="moveLeft = true"
-    ></button>
-    <div *ngFor="let image of images">
+<p-carousel [value]="images" [numVisible]="3" [numScroll]="3">
+    <ng-template let-image pTemplate="item">
         <app-image [image]="image" [size]="size"></app-image>
-    </div>
-    <button
-        pButton
-        pRipple
-        type="button"
-        class="p-button-rounded arrow-btn"
-        icon="pi pi-arrow-right"
-        (click)="moveRight = true"
-    ></button>
-</div>
+    </ng-template>
+</p-carousel>
