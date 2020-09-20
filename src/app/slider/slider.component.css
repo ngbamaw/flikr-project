@@ -3,6 +3,7 @@
     position: relative;
     height: 700px;
     width: 100%;
+    overflow: hidden;
 }
 
 .arrow-btn {
@@ -19,6 +20,16 @@
     right: 0;
 }
 
+.btn-container {
+    display: flex;
+    height: 100%;
+    position: absolute;
+}
+
+.btn-container > .arrow-btn {
+    margin: auto;
+}
+
 .slider-element {
     position: absolute;
     width: 500px;
@@ -30,7 +41,6 @@
 }
 
 .slider-element > div {
-    background: black;
     height: 500px;
     width: 100%;
 }
@@ -47,12 +57,14 @@
     transform: scale(0.8);
     opacity: 0.3;
     left: 0;
+    pointer-events: none;
 }
 
 .last {
     transform: scale(0.8);
     opacity: 0.3;
     right: 0;
+    pointer-events: none;
 }
 
 .highlight {
@@ -63,6 +75,7 @@
     position: absolute;
     left: -450px;
     transform: scale(0.5);
+    opacity: 0;
 }
 
 .hidden-right {

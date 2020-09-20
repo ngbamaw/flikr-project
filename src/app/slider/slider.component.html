@@ -1,4 +1,4 @@
-<p>current: {{ current }}</p>
+<p>{{ current + 1 }}/{{ images.length }}</p>
 <div class="sweep">
     <button
         pButton
@@ -6,8 +6,8 @@
         type="button"
         class="p-button-rounded arrow-btn btn-left"
         icon="pi pi-arrow-left"
-        (click)="moveLeft = true"
-        [disabled]="current >= images.length"
+        (click)="move('left')"
+        [disabled]="current === images.length - 1 || !images.length"
     ></button>
     <div
         class="slider-element hidden-left"
@@ -71,7 +71,7 @@
         type="button"
         class="p-button-rounded arrow-btn btn-right"
         icon="pi pi-arrow-right"
-        (click)="moveRight = true"
+        (click)="move('right')"
         [disabled]="current === 0"
     ></button>
 </div>

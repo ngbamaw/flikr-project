@@ -8,6 +8,8 @@ import { Photo } from '../models';
 export class SliderComponent implements OnInit {
     moveLeft: boolean = false;
     moveRight: boolean = false;
+    onMove: boolean = false;
+
     current: number = 0;
     constructor() {}
 
@@ -18,6 +20,20 @@ export class SliderComponent implements OnInit {
 
     @Input()
     size: number;
+
+    move(direction: string) {
+        if (!this.onMove) {
+            this.onMove = true;
+            switch (direction) {
+                case 'left':
+                    this.moveLeft = true;
+                    break;
+                case 'right':
+                    this.moveRight = true;
+                    break;
+            }
+        }
+    }
 
     @HostListener('transitionend', ['$event'])
     onTransitionEnd(event: Event) {
@@ -32,7 +48,10 @@ export class SliderComponent implements OnInit {
             this.moveLeft = false;
             this.moveRight = false;
         } else if (div.classList.contains('not-transition')) {
-            setTimeout(() => div.classList.remove('not-transition'), 100);
+            setTimeout(() => {
+                div.classList.remove('not-transition');
+                this.onMove = false;
+            }, 20);
         }
     }
 }
