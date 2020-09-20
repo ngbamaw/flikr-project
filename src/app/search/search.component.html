@@ -1,20 +1,18 @@
 <form
     [formGroup]="searchForm"
     (ngSubmit)="onSubmit(searchForm.value)"
-    class="p-fluid p-grid p-formgrid"
+    class="p-grid p-formgrid p-justify-between"
     ngNativeValidate
     class="form"
     role="search"
 >
-    <div class="p-input-icon-left p-col-12 p-lg-2" style="margin-bottom: 10px">
-        <i class="pi pi-search"></i>
+    <div class="p-field p-col-2">
         <p-chips
             id="tags"
             name="tags"
             class="tags"
             placeholder="Search..."
             type="text"
-            minlength="2"
             placeholder="Search.."
             formControlName="tags"
             [addOnBlur]="true"
@@ -33,22 +31,23 @@
         placeholder="Choose your prefered size"
         optionLabel="label"
         [showClear]="true"
+        class="p-field p-col-2"
     ></p-dropdown>
-    <div class="p-field p-col-12 p-lg-1">
+    <div class="p-field p-col-2">
         <p-calendar
             formControlName="min_date"
             placeholder="Minimum upload date"
             [showIcon]="true"
         ></p-calendar>
     </div>
-    <div class="p-field p-col-12 p-lg-1">
+    <div class="p-field p-col-2">
         <p-calendar
             formControlName="min_date"
             placeholder="Maximum upload date"
             [showIcon]="true"
         ></p-calendar>
     </div>
-    <span class="span-group">
+    <div class="p-field p-col-2">
         <p-chips
             type="text"
             id="added_tags"
@@ -62,21 +61,19 @@
         <div class="sub" *ngIf="added_tags_focused === true">
             Type on Enter to add a tag
         </div>
-    </span>
+    </div>
 
-    <span class="span-group galgroup">
+    <div class="in_gal">
         <label for="in_gal" class="label">Must be in gallery</label>
         <p-inputSwitch
             name="in_gal"
             id="in_gal"
             formControlName="is_in_gallery"
         ></p-inputSwitch>
-    </span>
-
-    <div class="p-col-12 p-lg-5"></div>
+    </div>
 
     <p-button
-        class="p-col-12 p-lg-2"
+        class="p-field search-submit"
         type="submit"
         label="Search photos"
     ></p-button>

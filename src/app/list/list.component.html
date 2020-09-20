@@ -3,14 +3,14 @@
         #dv
         [value]="images"
         [paginator]="true"
-        [rows]="3"
+        [rows]="9"
         filterBy="name"
         layout="grid"
     >
         <ng-template pTemplate="header">
             <h3>Flickr Results</h3>
         </ng-template>
-        <ng-template let-image pTemplate="gridItem">
+        <ng-template class="img-grid" let-image pTemplate="gridItem">
             <div class="p-col-12 p-md-4">
                 <div class="image-grid-item card">
                     <div class="image-grid-item-content">
