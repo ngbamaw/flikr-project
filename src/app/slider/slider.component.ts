@@ -29,7 +29,6 @@ export class SliderComponent implements OnInit {
             this.moveLeft = false;
             this.moveRight = false;
         } else if (div.classList.contains('not-transition')) {
-            console.log('transend', div);
             setTimeout(() => div.classList.remove('not-transition'), 50);
         }
     }

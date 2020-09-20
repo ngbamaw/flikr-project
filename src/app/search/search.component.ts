@@ -17,7 +17,7 @@ export namespace SearchComponent {
         min_date?: number;
         max_date?: number;
         size?: Size;
-        tags: string;
+        tags: string[];
     }
 
     export interface GetImagesResponse {
@@ -140,7 +140,6 @@ export class SearchComponent implements OnInit {
             ({ photos }: SearchComponent.GetImagesResponse) => {
                 this.photos = photos.photo;
                 this.onSearchImages.emit(this.photos);
-                console.log(this.photos);
             },
             (err: HttpErrorResponse) => {
                 if (!err.ok) {
