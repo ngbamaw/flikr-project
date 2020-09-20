@@ -1,24 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { Photo } from '../models';
-import { buildImgSrc } from '../utils';
-
 @Component({
     selector: 'app-slider',
     templateUrl: './slider.component.html',
     styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-    current: number = 0;
+    moveLeft: boolean = false;
+    moveRight: boolean = false;
+    constructor() {}
+
+    ngOnInit(): void {}
 
     @Input()
     images: Photo[];
 
     @Input()
-    size?: number;
+    size: number;
 
-    constructor() {}
-
-    ngOnInit(): void {
-        this.images = [];
+    @HostListener('transitionend', ['$event'])
+    onTransitionEnd(event: Event) {
+        const div = event.target as HTMLDivElement;
+        if (
+            div.classList.contains('img-container') &&
+            !div.classList.contains('not-transition')
+        ) {
+            div.classList.add('not-transition');
+            this.moveLeft = false;
+            this.moveRight = false;
+        } else if (div.classList.contains('not-transition')) {
+            setTimeout(() => div.classList.remove('not-transition'), 50);
+        }
     }
 }

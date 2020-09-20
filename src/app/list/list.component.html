@@ -1,9 +1,9 @@
-<div class="card">
+<div class="list">
     <p-dataView
         #dv
         [value]="images"
         [paginator]="true"
-        [rows]="9"
+        [rows]="3"
         filterBy="name"
         layout="grid"
     >
@@ -13,7 +13,6 @@
         <ng-template let-image pTemplate="gridItem">
             <div class="p-col-12 p-md-4">
                 <div class="image-grid-item card">
-                    <div class="image-grid-item-top"></div>
                     <div class="image-grid-item-content">
                         <app-image [image]="image" [size]="size"></app-image>
                     </div>
