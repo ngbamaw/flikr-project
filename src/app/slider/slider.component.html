@@ -1,26 +1,21 @@
-<div class="slider">
-    <p-carousel
-        [value]="images"
-        [numVisible]="3"
-        [numScroll]="3"
-        [circular]="true"
-    >
-        <ng-template pTemplate="header">
-            <h3>Flickr Results</h3>
-        </ng-template>
-        <ng-template let-image pTemplate="item">
-            <div class="photo-item">
-                <div class="photo-item-content">
-                    <div class="p-mb-3">
-                        <app-image
-                            [image]="image"
-                            [size]="size"
-                            class="product-image"
-                        >
-                        </app-image>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </p-carousel>
+<div class="sweep">
+    <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded arrow-btn"
+        icon="pi pi-arrow-left"
+        (click)="moveLeft = true"
+    ></button>
+    <div *ngFor="let image of images">
+        <app-image [image]="image"></app-image>
+    </div>
+    <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded arrow-btn"
+        icon="pi pi-arrow-right"
+        (click)="moveRight = true"
+    ></button>
 </div>
