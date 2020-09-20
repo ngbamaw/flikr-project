@@ -8,6 +8,7 @@ import { Photo } from '../models';
 export class SliderComponent implements OnInit {
     moveLeft: boolean = false;
     moveRight: boolean = false;
+    current: number = 0;
     constructor() {}
 
     ngOnInit(): void {}
@@ -22,14 +23,16 @@ export class SliderComponent implements OnInit {
     onTransitionEnd(event: Event) {
         const div = event.target as HTMLDivElement;
         if (
-            div.classList.contains('img-container') &&
+            div.classList.contains('slider-element') &&
             !div.classList.contains('not-transition')
         ) {
             div.classList.add('not-transition');
+            if (this.moveLeft) this.current++;
+            if (this.moveRight) this.current--;
             this.moveLeft = false;
             this.moveRight = false;
         } else if (div.classList.contains('not-transition')) {
-            setTimeout(() => div.classList.remove('not-transition'), 50);
+            setTimeout(() => div.classList.remove('not-transition'), 100);
         }
     }
 }
