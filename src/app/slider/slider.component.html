@@ -1,5 +1,77 @@
-<p-carousel [value]="images" [numVisible]="3" [numScroll]="3">
-    <ng-template let-image pTemplate="item">
-        <app-image [image]="image" [size]="size"></app-image>
-    </ng-template>
-</p-carousel>
+<div class="sweep">
+    <p>{{ current + 1 }}/{{ images.length }}</p>
+    <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded arrow-btn btn-left"
+        icon="pi pi-arrow-left"
+        (click)="move('left')"
+        [disabled]="current === 0"
+    ></button>
+    <div
+        class="slider-element hidden-left"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <app-image
+            *ngIf="current >= 2"
+            [image]="images[current - 2]"
+            [size]="size"
+        ></app-image>
+        <div *ngIf="current < 2 && !images.length"></div>
+    </div>
+    <div
+        class="slider-element first"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <app-image
+            *ngIf="current >= 1"
+            [image]="images[current - 1]"
+            [size]="size"
+        ></app-image>
+        <div *ngIf="current < 1 && !images.length"></div>
+    </div>
+    <div
+        class="slider-element highlight"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <app-image
+            *ngIf="images.length"
+            [image]="images[current]"
+            [size]="size"
+        ></app-image>
+        <div *ngIf="!images.length"></div>
+    </div>
+    <div
+        class="slider-element last"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <app-image
+            *ngIf="current < images.length - 1"
+            [image]="images[current + 1]"
+            [size]="size"
+        ></app-image>
+
+        <div *ngIf="current >= images.length - 1 && !images.length"></div>
+    </div>
+    <div
+        class="slider-element hidden-right"
+        [class]="moveLeft ? 'move-left' : moveRight ? 'move-right' : ''"
+    >
+        <app-image
+            *ngIf="current < images.length - 2"
+            [image]="images[current + 2]"
+            [size]="size"
+        ></app-image>
+        <div *ngIf="current >= images.length - 2 && !images.length"></div>
+    </div>
+    <button
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded arrow-btn btn-right"
+        icon="pi pi-arrow-right"
+        (click)="move('right')"
+        [disabled]="current === images.length - 1 || !images.length"
+    ></button>
+</div>

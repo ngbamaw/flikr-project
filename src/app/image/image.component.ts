@@ -10,9 +10,6 @@ import { buildImgSrc } from '../utils';
 export class ImageComponent implements OnInit {
     constructor() {}
 
-    moveLeft: boolean = false;
-    moveRight: boolean = false;
-
     showMore: boolean = false;
 
     @Input()
@@ -28,7 +25,7 @@ export class ImageComponent implements OnInit {
     }
 
     getSrc() {
-        return buildImgSrc(this.image, this.size);
+        return this.image ? buildImgSrc(this.image, this.size) : "";
     }
 
     toLocalDate(date: number) {

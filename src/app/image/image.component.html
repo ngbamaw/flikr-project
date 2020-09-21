@@ -1,22 +1,22 @@
 <div class="img-container">
     <img
         [src]="getSrc()"
-        [alt]="image.title"
+        [alt]="image?.title "
         (click)="toggleDescription()"
         class="image"
     />
-    <div class="image-name">{{ image.title }}</div>
+    <div class="image-name">{{ image?.title }}</div>
     <div *ngIf="showMore === true">
         <ul>
-            <li *ngIf="image.description._content.length > 0; else nodesc">
-                Description: {{ image.description._content }}
+            <li *ngIf="image?.description._content.length > 0; else nodesc">
+                Description: {{ image?.description._content }}
             </li>
             <ng-template #nodesc><li>No description</li></ng-template>
-            <li>Upload date: {{ toLocalDate(image.dateupload) }}</li>
-            <li class="image-views">Views: {{ image.views }}</li>
-            <li class="image-owner">Owner: {{ image.ownername }}</li>
-            <li class="image-owner">longitude: {{ image.longitude }}</li>
-            <li class="image-owner">latitude: {{ image.latitude }}</li>
+            <li>Upload date: {{ toLocalDate(image?.dateupload) }}</li>
+            <li class="image-views">Views: {{ image?.views }}</li>
+            <li class="image-owner">Owner: {{ image?.ownername }}</li>
+            <li class="image-owner">longitude: {{ image?.longitude }}</li>
+            <li class="image-owner">latitude: {{ image?.latitude }}</li>
         </ul>
     </div>
 </div>
