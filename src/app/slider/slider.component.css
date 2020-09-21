@@ -122,7 +122,6 @@
     opacity: 0;
     transform: scale(0.5);
     right: -450px;
-    z-index: 6;
 }
 
 .first.move-left {
