@@ -8,7 +8,7 @@ import { PrimeNGConfig } from 'primeng/api';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-    images: Photo[];
+    images: Photo[] = [];
     picsSize: number = undefined;
     showlist: boolean = false;
 
