@@ -43,8 +43,8 @@ export class SliderComponent implements OnInit {
             !div.classList.contains('not-transition')
         ) {
             div.classList.add('not-transition');
-            if (this.moveLeft) this.current++;
-            if (this.moveRight) this.current--;
+            if (this.moveLeft) this.current--;
+            if (this.moveRight) this.current++;
             this.moveLeft = false;
             this.moveRight = false;
         } else if (div.classList.contains('not-transition')) {

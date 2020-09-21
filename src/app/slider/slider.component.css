@@ -10,6 +10,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    z-index: 9999;
 }
 
 .btn-left {
@@ -69,6 +70,7 @@
 
 .highlight {
     left: calc(50% - 250px);
+    z-index: 5;
 }
 
 .hidden-left {
@@ -87,23 +89,24 @@
 
 .highlight.move-right {
     transform: scale(0.8);
-    left: calc(100% - 500px);
+    left: 0;
     opacity: 0.3;
 }
 
 .first.move-right {
-    opacity: 1;
-    transform: scale(1);
-    left: calc(50% - 250px);
+    opacity: 0;
+    transform: scale(0.5);
+    left: -450px;
 }
 
 .last.move-right {
-    opacity: 0;
-    transform: scale(0.5);
-    right: -450px;
+    opacity: 1;
+    transform: scale(1);
+    right: calc(50% - 250px);
+    z-index: 6;
 }
 
-.hidden-right.move-left {
+.hidden-right.move-right {
     transform: scale(0.8);
     right: 0;
     opacity: 0.3;
@@ -111,23 +114,25 @@
 
 .highlight.move-left {
     transform: scale(0.8);
-    left: 0;
+    left: calc(100% - 500px);
     opacity: 0.3;
 }
 
 .last.move-left {
-    opacity: 1;
-    transform: scale(1);
-    right: calc(50% - 250px);
+    opacity: 0;
+    transform: scale(0.5);
+    right: -450px;
+    z-index: 6;
 }
 
 .first.move-left {
-    opacity: 0;
-    transform: scale(0.5);
-    left: -450px;
+    opacity: 1;
+    transform: scale(1);
+    left: calc(50% - 250px);
+    z-index: 6;
 }
 
-.hidden-left.move-right {
+.hidden-left.move-left {
     transform: scale(0.8);
     left: 0;
     opacity: 0.3;

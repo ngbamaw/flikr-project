@@ -7,7 +7,7 @@
         class="p-button-rounded arrow-btn btn-left"
         icon="pi pi-arrow-left"
         (click)="move('left')"
-        [disabled]="current === images.length - 1 || !images.length"
+        [disabled]="current === 0"
     ></button>
     <div
         class="slider-element hidden-left"
@@ -72,6 +72,6 @@
         class="p-button-rounded arrow-btn btn-right"
         icon="pi pi-arrow-right"
         (click)="move('right')"
-        [disabled]="current === 0"
+        [disabled]="current === images.length - 1 || !images.length"
     ></button>
 </div>
