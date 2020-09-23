@@ -15,7 +15,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DataViewModule } from 'primeng/dataview';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SliderComponent } from './slider/slider.component';
@@ -32,7 +31,6 @@ import { ImageComponent } from './image/image.component';
         ImageComponent,
     ],
     imports: [
-        AppRoutingModule,
         ButtonModule,
         BrowserAnimationsModule,
         CommonModule,
