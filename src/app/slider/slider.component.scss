@@ -1,0 +1,150 @@
+$gap-btn: 5px;
+$highlight-width: 600px;
+$gap-side-element: 25px;
+$side-opacity: 0.3;
+$side-scale: 0.5;
+$hidden-scale: 0.3;
+
+.sweep {
+    display: flex;
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.arrow-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
+.btn-left {
+    left: $gap-btn;
+}
+
+.btn-right {
+    right: $gap-btn;
+}
+
+.btn-container {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    > .arrow-btn {
+        margin: auto;
+    }
+}
+
+.slider-element {
+    position: absolute;
+    width: $highlight-width;
+    height: fit-content;
+    transition: 0.5s all;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    > div {
+        height: 550px;
+        width: 100%;
+    }
+}
+.not-transition {
+    transition: none;
+}
+
+.arrow-btn {
+    margin: auto 0;
+}
+
+.first {
+    transform: scale($side-scale);
+    opacity: $side-opacity;
+    pointer-events: none;
+    left: $gap-side-element;
+}
+
+.last {
+    transform: scale($side-scale);
+    opacity: $side-opacity;
+    pointer-events: none;
+    right: $gap-side-element;
+}
+
+.highlight {
+    left: calc(50% - #{$highlight-width / 2});
+    z-index: 5;
+}
+
+.hidden-left {
+    position: absolute;
+    left: -450px;
+    transform: scale($hidden-scale);
+    opacity: 0;
+}
+
+.hidden-right {
+    position: absolute;
+    right: -450px;
+    transform: scale($hidden-scale);
+    opacity: 0;
+}
+
+.highlight.move-right {
+    transform: scale($side-scale);
+    left: $gap-side-element;
+    opacity: $side-opacity;
+}
+
+.first.move-right {
+    opacity: 0;
+    transform: scale($hidden-scale);
+    left: -450px;
+}
+
+.last.move-right {
+    opacity: 1;
+    transform: scale(1);
+    right: calc(50% - #{$highlight-width / 2});
+    z-index: 6;
+}
+
+.hidden-right.move-right {
+    transform: scale($side-scale);
+    right: $gap-side-element;
+    opacity: $side-opacity;
+}
+
+.highlight.move-left {
+    transform: scale($side-scale);
+    left: calc(100% - #{$highlight-width + $gap-side-element});
+    opacity: $side-opacity;
+}
+
+.last.move-left {
+    opacity: 0;
+    transform: scale($hidden-scale);
+    right: -450px;
+}
+
+.first.move-left {
+    opacity: 1;
+    transform: scale(1);
+    left: calc(50% - #{$highlight-width / 2});
+    z-index: 6;
+}
+
+.hidden-left.move-left {
+    transform: scale($side-scale);
+    left: $gap-side-element;
+    opacity: $side-opacity;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.not-transition {
+    transition: none;
+}

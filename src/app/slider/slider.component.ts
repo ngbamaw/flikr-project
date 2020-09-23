@@ -9,6 +9,7 @@ export class SliderComponent implements OnInit {
     moveLeft: boolean = false;
     moveRight: boolean = false;
     onMove: boolean = false;
+    fast: boolean = false;
 
     current: number = 0;
     constructor() {}
@@ -21,7 +22,7 @@ export class SliderComponent implements OnInit {
     @Input()
     size: number;
 
-    move(direction: string) {
+    move(direction: 'left' | 'right') {
         if (!this.onMove) {
             this.onMove = true;
             switch (direction) {
