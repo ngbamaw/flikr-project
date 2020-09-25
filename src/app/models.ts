@@ -10,6 +10,18 @@ export interface Photo {
     ownername: string;
     longitude: string;
     latitude: string;
+    comments?: { photo_id: string; comment: Comment[] };
+}
+
+interface Comment {
+    id: string;
+    author: string;
+    author_is_delete: number;
+    authorname: string;
+    datecreate: string;
+    permalink: string;
+    realname: string;
+    _content: string;
 }
 
 export const mockPhoto: Photo = {

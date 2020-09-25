@@ -61,8 +61,9 @@ export class HttpService {
     }
 
     getComments(photo_id: string) {
-        const params = this.params;
-        params.append('photo_id', photo_id);
+        const params = this.params
+            .append('photo_id', photo_id)
+            .append('method', 'flickr.photos.comments.getList');
         return this.http.get(`${config.BASE_API_URL}/`, {
             headers: this.headers,
             params,

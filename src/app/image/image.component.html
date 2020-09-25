@@ -1,10 +1,5 @@
-<div class="img-container">
-    <img
-        [src]="getSrc()"
-        [alt]="image?.title "
-        (click)="toggleDescription()"
-        class="image"
-    />
+<div class="img-container" (click)="toggleDescription()">
+    <img [src]="getSrc()" [alt]="image?.title" class="image" />
     <div class="image-name">{{ image?.title }}</div>
     <div *ngIf="showMore === true">
         <ul>
@@ -13,10 +8,22 @@
             </li>
             <ng-template #nodesc><li>No description</li></ng-template>
             <li>Upload date: {{ toLocalDate(image?.dateupload) }}</li>
-            <li class="image-views">Views: {{ image?.views }}</li>
-            <li class="image-owner">Owner: {{ image?.ownername }}</li>
-            <li class="image-owner">longitude: {{ image?.longitude }}</li>
-            <li class="image-owner">latitude: {{ image?.latitude }}</li>
+            <li class="desc-item">Views: {{ image?.views }}</li>
+            <li class="desc-item">Owner: {{ image?.ownername }}</li>
+            <li class="desc-item">longitude: {{ image?.longitude }}</li>
+            <li class="desc-item">latitude: {{ image?.latitude }}</li>
+            <li *ngIf="image?.comments?.comment?.length > 0">
+                Comments:
+
+                <ol style="list-style-type: lower-alpha; padding-bottom: 0">
+                    <li
+                        *ngFor="let comment of image?.comments?.comment"
+                        class="comment"
+                        style="margin-left: 1em"
+                        [innerHTML]="comment._content"
+                    ></li>
+                </ol>
+            </li>
         </ul>
     </div>
 </div>
