@@ -4,7 +4,8 @@
     <div *ngIf="showMore === true">
         <ul>
             <li *ngIf="image?.description._content.length > 0; else nodesc">
-                Description: {{ image?.description._content }}
+                Description:
+                <span [innerHTML]="image?.description._content"></span>
             </li>
             <ng-template #nodesc><li>No description</li></ng-template>
             <li>Upload date: {{ toLocalDate(image?.dateupload) }}</li>
