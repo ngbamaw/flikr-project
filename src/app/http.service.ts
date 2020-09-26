@@ -38,6 +38,9 @@ export class HttpService {
             'license',
         ];
 
+        // number of pictures per page
+        const limit = 20;
+
         const params = this.params
             .append('method', 'flickr.photos.search')
             .append(
@@ -49,7 +52,7 @@ export class HttpService {
             .append('in_gallery', `${is_in_gallery}`)
             .append('min_upload_date', `${min_date ? min_date : ''}`)
             .append('max_upload_date', `${max_date ? max_date : ''}`)
-            .append('per_page', '20')
+            .append('per_page', limit.toString())
             .append('media', 'photos')
             .append('extras', extras.join(','))
             .append('has_geo', 'true');
