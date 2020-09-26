@@ -6,3 +6,7 @@
 body {
     margin: unset;
 }
+
+.p-chips > ul {
+    border-color: #ced4da !important;
+}

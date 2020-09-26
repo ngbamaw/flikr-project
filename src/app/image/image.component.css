@@ -2,7 +2,7 @@
     width: fit-content;
     padding: 10px;
     background: white;
-    box-shadow: rgb(119, 119, 119) 0px 0px 15px;
+    box-shadow: rgb(119, 119, 119) 0px 0px 10px;
     margin-bottom: 16px;
     transition: 0.5s all;
 }
@@ -10,4 +10,9 @@
 .img-container img {
     display: block;
     margin: 0 auto;
+}
+
+.image-title {
+    margin-top: 8px;
+    font-weight: bold;
 }
