@@ -13,6 +13,9 @@
 ## Getting started
 
 ```bash
+git clone git@github.com:ngbamaw/flikr-project.git # or git clone https://github.com/ngbamaw/flikr-project if you are using HTTPS
+cd flickr-project
+npm install
 npm run start
 ```
 
